@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "markdownlint"
+version = "1.0.0"
+description = "Validate Markdown files against configurable common style rules"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [{name = "Nripanka Das", email = "nripankadas@gmail.com"}]
+keywords = ["markdown", "lint", "validator", "style"]
+
+[project.urls]
+Homepage = "https://github.com/nripankadas07/markdownlint"
+Repository = "https://github.com/nripankadas07/markdownlint"
+Issues = "https://github.com/nripankadas07/markdownlint/issues"
+
+[tool.setuptools]
+packages = ["markdownlint"]
+package-dir = {"" = "src"}
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["src/markdownlint"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+]
